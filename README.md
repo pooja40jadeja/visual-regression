@@ -1,3 +1,4 @@
+# PDF Validation using Visual Regression
 Imagemagick library is used to convert the PDF into an image file. A mask file is prepared using GIMP to hide the barcode(You can hide the part which is different compared to the reference file) which is then applied to the file being tested and to the reference file. The two files will be compared and the test will fail if difference between two files is greater than given threshold. More details about the library can be found here.
 
 Pdfgrep library is used to search the Order Number in the file. It returns the string containing the given keyword (In our case: Order Number).
@@ -10,12 +11,15 @@ The keyword, Validate barcode converts the PDF to an image, runs zbarimg command
 
 The command, pdfgrep only works on PDFs and not on images. We are running pdfgrep on the test PDF to check if it contains the Order Number.
 
-Installation Steps:
-Prerequisite: Python3
+## Prerequisites
 
+* Python3
+* pip3
+
+## Installation Steps
 Install Robot Framework
 ```shell
-pip install robotframework
+pip3 install robotframework
 ```
 
 Install libraries using below command.
@@ -34,7 +38,7 @@ apt install -y  imagemagick
 apt install  -y zbar-tools
 ```
 
-
+## Test Execution
 Run the test using
 ```shell
 robot resources/test.robot
