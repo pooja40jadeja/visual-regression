@@ -2,7 +2,7 @@ Imagemagick library is used to convert the PDF into an image file. A mask file i
 
 Pdfgrep library is used to search the Order Number in the file. It returns the string containing the given keyword (In our case: Order Number).
 
-Zbar library is used to scan the barcode. It returns the string which the barcode contains (*CODE-128:${order_number}*) which can be compared with shipment number to make sure that barcode contains the correct data.
+Zbar library is used to scan the barcode. It returns the string which the barcode contains (*CODE-128:${order_number}*) which can be compared with Order Number to make sure that barcode contains the correct data.
 
 Test PDF is being compared with reference PDF for which we are using Imagemagick library. The Keyword Compare Images takes 3 parameters where we are providing path to PDFs and the accepted difference in % between the two files. ${output} variable in below command would save the % difference between two PDFs. Then we are checking if it is less than or equal to the allowed threshold.
 
@@ -11,6 +11,13 @@ The keyword, Validate barcode converts the PDF to an image, runs zbarimg command
 The command, pdfgrep only works on PDFs and not on images. We are running pdfgrep on the test PDF to check if it contains the Order Number.
 
 Installation Steps:
+Prerequisite: Python3
+
+Install Robot Framework
+```shell
+pip install robotframework
+```
+
 Install libraries using below command.
 
 For Mac
@@ -18,4 +25,17 @@ For Mac
 brew install pdfgrep
 brew install imagemagick
 brew install zbar
+```
+
+For Docker
+```shell
+apt install -y  pdfgrep
+apt install -y  imagemagick
+apt install  -y zbar-tools
+```
+
+
+Run the test using
+```shell
+robot resources/test.robot
 ```
