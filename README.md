@@ -43,3 +43,5 @@ Run the test using
 ```shell
 robot resources/test.robot
 ```
+
+#robotframework #imagemagick #pdfgrep #zbar #visualregression
